@@ -33,7 +33,7 @@
 		}
 	};
 
-	let profileImageUrl = '/favicon.png';
+	let profileImageUrl = '/aero-spx-icon.png';
 	let description = '';
 
 	let selectedModelId = '';
@@ -88,7 +88,7 @@
 
 		name = '';
 		id = '';
-		profileImageUrl = '/favicon.png';
+		profileImageUrl = '/aero-spx-icon.png';
 		description = '';
 		modelIds = [];
 		selectedModelId = '';
