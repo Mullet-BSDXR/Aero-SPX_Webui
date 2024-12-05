@@ -12,6 +12,7 @@
 
 	import Tooltip from '$lib/components/common/Tooltip.svelte';
 	import VideoInputMenu from './CallOverlay/VideoInputMenu.svelte';
+	import { WEBUI_BASE_URL } from '$lib/constants';
 
 	const i18n = getContext('i18n');
 
@@ -807,7 +808,7 @@
 							/><circle class="spinner_qM83 spinner_ZTLf" cx="20" cy="12" r="3" /></svg
 						>
 					{:else}
-            <img src="./userCallBlob.gif" alt="User speaking GIF"/>
+            <img src={`${WEBUI_BASE_URL}/static/userCallBlob.gif`} alt="User speaking GIF"/>
 					{/if}
 				</button>
 			{:else}
