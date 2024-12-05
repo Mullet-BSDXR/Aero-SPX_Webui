@@ -27,7 +27,7 @@
 
 	import Tooltip from '../common/Tooltip.svelte';
 	import InputMenu from './MessageInput/InputMenu.svelte';
-	import Headphone from '../icons/Headphone.svelte';
+	import PhoneCall from '../icons/PhoneCall.svelte';
 	import VoiceRecording from './MessageInput/VoiceRecording.svelte';
 	import FileItem from '../common/FileItem.svelte';
 	import FilesOverlay from './MessageInput/FilesOverlay.svelte';
@@ -1066,7 +1066,7 @@
 													}}
 													aria-label="Call"
 												>
-													<Headphone className="size-6" />
+													<PhoneCall className="size-6" />
 												</button>
 											</Tooltip>
 										</div>
