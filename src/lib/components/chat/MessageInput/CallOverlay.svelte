@@ -807,22 +807,7 @@
 							/><circle class="spinner_qM83 spinner_ZTLf" cx="20" cy="12" r="3" /></svg
 						>
 					{:else}
-						<div
-							class=" {rmsLevel * 100 > 4
-								? ' size-52'
-								: rmsLevel * 100 > 2
-									? 'size-48'
-									: rmsLevel * 100 > 1
-										? 'size-44'
-										: 'size-40'}  transition-all rounded-full {(model?.info?.meta
-								?.profile_image_url ?? '/static/aero-spx-icon.png') !== '/static/aero-spx-icon.png'
-								? ' bg-cover bg-center bg-no-repeat'
-								: 'bg-black dark:bg-white'} "
-							style={(model?.info?.meta?.profile_image_url ?? '/static/aero-spx-icon.png') !==
-							'/static/aero-spx-icon.png'
-								? `background-image: url('${model?.info?.meta?.profile_image_url}');`
-								: ''}
-						/>
+            <img src="./userCallBlob.gif" alt="User speaking GIF"/>
 					{/if}
 				</button>
 			{:else}
