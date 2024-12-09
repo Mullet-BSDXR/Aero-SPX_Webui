@@ -1023,7 +1023,7 @@
 								{#if !history.currentId || history.messages[history.currentId]?.done == true}
 									{#if prompt === ''}
 										<div class=" flex items-center mb-1">
-											<Tooltip content={$i18n.t('Call')}>
+											<Tooltip content={$i18n.t('Talk with Bot')}>
 												<button
 													class=" text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-850 transition rounded-full p-2 self-center"
 													type="button"
@@ -1064,7 +1064,7 @@
 															);
 														}
 													}}
-													aria-label="Call"
+													aria-label="Talk with Bot"
 												>
 													<PhoneCall className="size-6" />
 												</button>
