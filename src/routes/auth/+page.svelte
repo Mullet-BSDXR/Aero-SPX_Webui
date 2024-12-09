@@ -28,7 +28,7 @@
 
 	let ldapUsername = '';
 
-  let logoURL = `../../../static/splash.png`;
+  let logoURL = `${WEBUI_BASE_URL}/static/splash.png`;
 
 	const setSessionUser = async (sessionUser) => {
 		if (sessionUser) {
@@ -184,7 +184,7 @@
 						>
 							<div class="flex flex-col gap-5 mb-1">
                 <figure>
-                  <img src={logoURL} alt="BSDXR Logo"/>
+                  <img src={logoURL} alt="AeroSPX Logo"/>
                 </figure>
 								<div class=" text-2xl font-medium">
 									{#if $config?.onboarding ?? false}
