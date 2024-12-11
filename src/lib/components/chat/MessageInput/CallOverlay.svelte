@@ -771,42 +771,11 @@
 							{emoji}
 						</div>
 					{:else if loading || assistantSpeaking}
-						<svg
-							class="size-44 text-gray-900 dark:text-gray-400"
-							viewBox="0 0 24 24"
-							fill="currentColor"
-							xmlns="http://www.w3.org/2000/svg"
-							><style>
-								.spinner_qM83 {
-									animation: spinner_8HQG 1.05s infinite;
-								}
-								.spinner_oXPr {
-									animation-delay: 0.1s;
-								}
-								.spinner_ZTLf {
-									animation-delay: 0.2s;
-								}
-								@keyframes spinner_8HQG {
-									0%,
-									57.14% {
-										animation-timing-function: cubic-bezier(0.33, 0.66, 0.66, 1);
-										transform: translate(0);
-									}
-									28.57% {
-										animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33);
-										transform: translateY(-6px);
-									}
-									100% {
-										transform: translate(0);
-									}
-								}
-							</style><circle class="spinner_qM83" cx="4" cy="12" r="3" /><circle
-								class="spinner_qM83 spinner_oXPr"
-								cx="12"
-								cy="12"
-								r="3"
-							/><circle class="spinner_qM83 spinner_ZTLf" cx="20" cy="12" r="3" /></svg
-						>
+						<div class="flex gap-4">
+							<figure class="w-16 h-16"><img src={`${WEBUI_BASE_URL}/static/userCallBlob.gif`} alt="User speaking GIF"/></figure>
+							<figure class="w-16 h-16"><img src={`${WEBUI_BASE_URL}/static/userCallBlob.gif`} alt="User speaking GIF"/></figure>
+							<figure class="w-16 h-16"><img src={`${WEBUI_BASE_URL}/static/userCallBlob.gif`} alt="User speaking GIF"/></figure>	
+						</div>
 					{:else}
             <img src={`${WEBUI_BASE_URL}/static/userCallBlob.gif`} alt="User speaking GIF"/>
 					{/if}
