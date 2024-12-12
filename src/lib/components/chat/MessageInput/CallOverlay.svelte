@@ -9,6 +9,9 @@
 	import { synthesizeOpenAISpeech, transcribeAudio } from '$lib/apis/audio';
 
 	import { toast } from 'svelte-sonner';
+	
+	import PauseCall from '../../icons/PauseCall.svelte';
+	import StopCall from '../../icons/StopCall.svelte';
 
 	import Tooltip from '$lib/components/common/Tooltip.svelte';
 	import VideoInputMenu from './CallOverlay/VideoInputMenu.svelte';
@@ -776,8 +779,50 @@
 							<figure class="w-16 h-16"><img src={`${WEBUI_BASE_URL}/static/userCallBlob.gif`} alt="User speaking GIF"/></figure>
 							<figure class="w-16 h-16"><img src={`${WEBUI_BASE_URL}/static/userCallBlob.gif`} alt="User speaking GIF"/></figure>	
 						</div>
+						<div>
+              <button
+                type="button"
+                on:click={() => {
+                  if (assistantSpeaking) {
+                    stopAllAudio();
+                  }
+                }}
+              >
+                <div class=" line-clamp-1 text-sm font-medium">
+                  {#if loading}
+                    {$i18n.t('Thinking...')}
+                  {:else if assistantSpeaking}
+                    {$i18n.t('Tap to interrupt')}
+                  {:else}
+                    {$i18n.t('Listening...')}
+                  {/if}
+                </div>
+              </button>
+            </div>
 					{:else}
-            <img src={`${WEBUI_BASE_URL}/static/userCallBlob.gif`} alt="User speaking GIF"/>
+            					<figure>
+              						<img src={`${WEBUI_BASE_URL}/static/userCallBlob.gif`} alt="User speaking GIF"/>
+            					</figure>
+            <div>
+              <button
+                type="button"
+                on:click={() => {
+                  if (assistantSpeaking) {
+                    stopAllAudio();
+                  }
+                }}
+              >
+                <div class=" line-clamp-1 text-sm font-medium">
+                  {#if loading}
+                    {$i18n.t('Thinking...')}
+                  {:else if assistantSpeaking}
+                    {$i18n.t('Tap to interrupt')}
+                  {:else}
+                    {$i18n.t('Listening...')}
+                  {/if}
+                </div>
+              </button>
+            </div>
 					{/if}
 				</button>
 			{:else}
@@ -876,28 +921,26 @@
 				{/if}
 			</div>
 
+			{#if assistantSpeaking}
 			<div>
-				<button
-					type="button"
-					on:click={() => {
-						if (assistantSpeaking) {
-							stopAllAudio();
-						}
-					}}
-				>
-					<div class=" line-clamp-1 text-sm font-medium">
-						{#if loading}
-							{$i18n.t('Thinking...')}
-						{:else if assistantSpeaking}
-							{$i18n.t('Tap to interrupt')}
-						{:else}
-							{$i18n.t('Listening...')}
-						{/if}
-					</div>
-				</button>
-			</div>
+		<Tooltip content={$i18n.t('Pause Response')}>
+              <button
+               	class=" p-3 rounded-full bg-gray-50 dark:bg-gray-900"
+		type="button"
+                on:click={() => {
+                  if (assistantSpeaking) {
+                    stopAllAudio();
+                  }
+                }}
+              >
+		<PauseCall/>                
+              </button>
+		</Tooltip>
+            </div>
+	{/if}
 
 			<div>
+				<Tooltip content={$i18n.t('Stop Response')}>				
 				<button
 					class=" p-3 rounded-full bg-gray-50 dark:bg-gray-900"
 					on:click={async () => {
@@ -912,17 +955,9 @@
 					}}
 					type="button"
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 20 20"
-						fill="currentColor"
-						class="size-5"
-					>
-						<path
-							d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"
-						/>
-					</svg>
+					<StopCall/>
 				</button>
+				</Tooltip>
 			</div>
 		</div>
 	</div>
